@@ -1,5 +1,6 @@
 package com.inno.transactional.limit.check.transactionaldailylimitcheck.service.impl;
 
+import com.inno.transactional.limit.check.transactionaldailylimitcheck.exception.NotFoundException;
 import com.inno.transactional.limit.check.transactionaldailylimitcheck.model.UserLimit;
 import com.inno.transactional.limit.check.transactionaldailylimitcheck.model.dto.TransactionRequestDTO;
 import com.inno.transactional.limit.check.transactionaldailylimitcheck.model.dto.UserLimitDTO;
@@ -37,13 +38,13 @@ public class UserLimitServiceImpl implements UserLimitService {
     }
 
     @Override
-    public boolean checkAndProcess(TransactionRequestDTO dto) {
-        UserLimit limit = userLimitRepository.findByUserId(dto.getUserId())
+    public boolean checkAndProcess(TransactionRequestDTO transactionRequestDTO) {
+        UserLimit limit = userLimitRepository.findByUserId(transactionRequestDTO.getUserId())
                 .orElseThrow(() -> new NotFoundException("User limit not found"));
 
-        if (dto.getAmount().compareTo(limit.getRemainingAmount()) <= 0) {
+        if (transactionRequestDTO.getAmount().compareTo(limit.getRemainingAmount()) <= 0) {
             limit.setRemainingAmount(
-                    limit.getRemainingAmount().subtract(dto.getAmount())
+                    limit.getRemainingAmount().subtract(transactionRequestDTO.getAmount())
             );
             userLimitRepository.save(limit);
             return true;
