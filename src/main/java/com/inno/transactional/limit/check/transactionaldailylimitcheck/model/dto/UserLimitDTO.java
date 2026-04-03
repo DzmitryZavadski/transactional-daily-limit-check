@@ -2,6 +2,8 @@ package com.inno.transactional.limit.check.transactionaldailylimitcheck.model.dt
 
 import lombok.*;
 
+import java.math.BigDecimal;
+
 @Getter
 @Setter
 @ToString
@@ -9,5 +11,5 @@ import lombok.*;
 @AllArgsConstructor
 public class UserLimitDTO {
     private Long userId;
-    private String limitAmount;
+    private BigDecimal limitAmount;
 }

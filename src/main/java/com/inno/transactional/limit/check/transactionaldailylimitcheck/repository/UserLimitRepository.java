@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-@Repository
 public interface UserLimitRepository extends JpaRepository<UserLimit,Long> {
     Optional<UserLimit> findByUserId(Long userId);
 }
