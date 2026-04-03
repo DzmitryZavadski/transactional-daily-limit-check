@@ -26,5 +26,4 @@ public class UserLimitController {
     public boolean check(@RequestBody TransactionRequestDTO dto) {
         return userLimitServiceImpl.checkAndProcess(dto);
     }
-
 }
