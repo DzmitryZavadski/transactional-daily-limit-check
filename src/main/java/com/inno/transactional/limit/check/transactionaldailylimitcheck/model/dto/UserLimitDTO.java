@@ -7,7 +7,7 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserLimitDto {
+public class UserLimitDTO {
     private Long userId;
     private String limitAmount;
 }

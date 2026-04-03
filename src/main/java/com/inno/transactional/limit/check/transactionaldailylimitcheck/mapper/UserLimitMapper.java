@@ -1,12 +1,12 @@
 package com.inno.transactional.limit.check.transactionaldailylimitcheck.mapper;
 
 import com.inno.transactional.limit.check.transactionaldailylimitcheck.model.UserLimit;
-import com.inno.transactional.limit.check.transactionaldailylimitcheck.model.dto.UserLimitDto;
+import com.inno.transactional.limit.check.transactionaldailylimitcheck.model.dto.UserLimitDTO;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface UserLimitMapper {
-    UserLimit toEntity(UserLimitDto dto);
+    UserLimit toEntity(UserLimitDTO dto);
 
-    UserLimitDto toDto(UserLimit entity);
+    UserLimitDTO toDto(UserLimit entity);
 }

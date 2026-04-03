@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class TransactionRequestDto {
+public class TransactionRequestDTO {
     private Long userId;
     private BigDecimal amount;
 }
